@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "lib": ["ES2021"],
+        "checkJs": true,
+        "downlevelIteration": true
+    },
+    "exclude": ["node_modules", "**/node_modules/*"]
+}
