@@ -1,14 +1,17 @@
 {
-    "name": "vocab-flashcard-generator",
+    "name": "flashcard-generator",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "parse-markdown-table": "^0.0.6"
+        "parse-markdown-table": "^0.0.6",
+        "sanitize-filename": "^1.6.3",
+        "yargs": "^17.3.1"
     }
 }

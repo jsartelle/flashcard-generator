@@ -1,58 +1,19 @@
-Convert a Markdown note in this format:
+# Flashcard Generator
 
-```markdown
-# Fruit
-| Name   | Color  | Notes           |
-| ------ | ------ | --------------- |
-| apple  | red    | sometimes green |
-| banana | yellow |                 |
-| orange | orange |                 |
+Pulls out tables from Markdown notes and converts them for use with [Obsidian Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition).
 
-- Other data can go here but it won't be included.
+The first column forms the front of the card, all other columns are added to the back. By default the [Multi-line basic](https://github.com/st3v3nmw/obsidian-spaced-repetition/wiki/Flashcard-Types#multi-line-basic) style is used.
 
-# Vegetables
+## Usage
 
-| Name     | Color  | Notes                   |
-| -------- | ------ | ----------------------- |
-| carrot   | orange |                         |
-| broccoli | green  |                         |
-| tomato   | red    | ==technically a fruit== |
-```
+`node index.js [path] [-fr] [--tag=string]`
 
-into a note in this format:
+### Options
 
-```markdown
-#flashcards/Fruit
+- `-f` - Overwrite the destination folder without prompting.
+- `-r` - Use the [Multi-line reversed](https://github.com/st3v3nmw/obsidian-spaced-repetition/wiki/Flashcard-Types#multi-line-reversed) style, where a second card is created with the front and back flipped.
+- `--tag` - Change the root tag added to each note (default: *flashcards*)
 
-apple
-??
-red
-sometimes green
+## Output
 
-banana
-??
-yellow
-
-orange
-??
-orange
-
-#flashcards/Vegetables
-
-carrot
-??
-orange
-
-broccoli
-??
-green
-
-tomato
-??
-red
-==technically a fruit==
-```
-
-Tables must come directly after the header (blank lines are okay). Only one table per header is parsed.
-
-For use with [Obsidian Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition).
+Files are saved to the `Flashcards` directory in subfolders matching the note title. A new file is created for each table. Files are named after the previous header, or the note title if there aren't any previous headers.
